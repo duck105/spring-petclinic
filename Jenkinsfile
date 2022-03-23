@@ -3,7 +3,10 @@ pipeline {
   stages {
     stage('SonarQube') {
       steps {
-        withSonarQubeEnv 'sonar_server'
+        withSonarQubeEnv('sonar_server') {
+          sh 'echo "hahaha"'
+        }
+
       }
     }
 
