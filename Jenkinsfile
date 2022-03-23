@@ -1,15 +1,12 @@
 pipeline {
   agent any
   stages {
-    stage('Build') {
-      steps {
-        sh './mvnw spring-boot:run'
-      }
-    }
-
     stage('SonarQube') {
       steps {
-        withSonarQubeEnv 'sonar_server'
+        withSonarQubeEnv('sonar_server') {
+          sh 'sh \'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.7.0.1746:sonar\''
+        }
+
       }
     }
 
