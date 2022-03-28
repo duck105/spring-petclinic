@@ -4,7 +4,7 @@ pipeline {
     stage('SonarQube') {
       steps {
         withSonarQubeEnv('sonar_server') {
-          sh 'echo "hahaha"'
+          sh 'sh \'./mvnw clean package sonar:sonar\''
         }
 
       }
